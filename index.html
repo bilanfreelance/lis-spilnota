@@ -1,0 +1,579 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ліс Маневиччини · Спільнота</title>
+<meta name="description" content="Четверта версія лендінгу: яскравий молодіжний стиль спільноти — верес і молода хвоя, маркерні виділення, стікери.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&family=Onest:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: youth community movement — charcoal + cream bands, heavy uppercase heads with marker highlights (heather lilac / young-needle lime), tilted stickers, bordered cards, pricing-style participation tiers */
+:root{
+  --char:#191919;      /* темне тло */
+  --char-2:#222221;
+  --cream:#F6F3EC;     /* світле тло */
+  --ink:#141414;
+  --heather:#E3A8F2;   /* верес — бузковий акцент */
+  --needle:#D7F75B;    /* молода хвоя — лайм */
+  --line-d:rgba(255,255,255,.16);
+  --line-l:rgba(20,20,20,.14);
+  --mute-d:#A9A9A4;
+  --mute-l:#5E5E58;
+  --alarm:#FF5B45;
+  --head:"Rubik",system-ui,sans-serif;
+  --sans:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1240px; --gut:clamp(16px,3vw,40px);
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--char);color:#fff;font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--heather);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;font-family:var(--head);text-transform:uppercase;font-weight:900;letter-spacing:-.01em;line-height:.98;text-wrap:balance}
+section{padding:clamp(72px,9vw,128px) var(--gut)}
+.wrap{max-width:var(--wrap);margin:0 auto}
+.cream{background:var(--cream);color:var(--ink)}
+.lime{background:var(--needle);color:var(--ink)}
+.dark{background:var(--char);color:#fff}
+.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tnum{font-variant-numeric:tabular-nums}
+.h2{font-size:clamp(32px,4.4vw,60px)}
+.center{text-align:center}
+.lead{margin:0;font-size:17px;max-width:560px}
+.cream .lead{color:var(--mute-l)}
+.dark .lead{color:var(--mute-d)}
+
+/* marker highlights */
+.hl{position:relative;display:inline;padding:0 .14em;margin:0 -.04em;border-radius:.16em;background:linear-gradient(var(--hc,var(--heather)),var(--hc,var(--heather))) no-repeat left center / var(--hw,100%) 100%;box-decoration-break:clone;-webkit-box-decoration-break:clone;color:var(--ink)}
+.hl.l{--hc:var(--needle)}
+.hl.w{--hc:#fff}
+/* stickers */
+.sticker{display:inline-flex;align-items:center;padding:6px 12px;border-radius:6px;background:var(--needle);color:var(--ink);font-family:var(--head);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.02em;transform:rotate(-6deg);box-shadow:0 6px 16px -6px rgba(0,0,0,.4)}
+.sticker.h{background:var(--heather)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;border:1px solid currentColor;font-size:12px;font-weight:500}
+.cream .chip{border-color:var(--line-l)}
+.dark .chip{border-color:var(--line-d)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:56px;padding:0 26px;border-radius:12px;border:0;cursor:pointer;font-family:var(--head);font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:4px 4px 0 var(--ink)}
+.dark .btn:hover,.hero .btn:hover{box-shadow:4px 4px 0 #fff}
+.btn:hover svg{transform:translateX(4px)}
+.b-heather{background:var(--heather);color:var(--ink)}
+.b-lime{background:var(--needle);color:var(--ink)}
+.b-ink{background:var(--ink);color:#fff}
+.b-ghost{background:transparent;border:1px solid var(--line-d);color:#fff}
+.b-ghost:hover{border-color:#fff}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);transition:transform .5s var(--ease),background .3s}
+.nav.solid{background:rgba(25,25,25,.94)}
+.nav.hide{transform:translateY(-110%)}
+.nav-in{max-width:var(--wrap);margin:0 auto;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--head);font-weight:900;text-transform:uppercase;font-size:15px;line-height:.95}
+.logo-mark{width:38px;height:38px;border-radius:10px;background:var(--needle);display:grid;place-items:center;color:var(--ink);transform:rotate(-6deg)}
+.links{display:flex;gap:24px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.links a{display:inline-flex;gap:4px;align-items:center;opacity:.85}
+.links a:hover{opacity:1;color:var(--needle)}
+.nav-ctas{margin-left:auto;display:flex;gap:8px}
+.nav .btn{min-height:42px;padding:0 18px;font-size:12px;border-radius:999px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;background:var(--needle);color:var(--ink);border:0;align-items:center;justify-content:center;cursor:pointer}
+.mmenu{max-width:var(--wrap);margin:10px auto 0;padding:10px;border-radius:16px;background:var(--char-2);border:1px solid var(--line-d);display:flex;flex-direction:column}
+.mmenu[hidden]{display:none}
+.mmenu a{padding:12px;font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:18px}
+@media (max-width:960px){.links,.nav-ctas .b-ghost{display:none}.menu-btn{display:inline-flex}}
+@media (max-width:420px){.nav-ctas{display:none}.nav-in{justify-content:space-between}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding:120px var(--gut) clamp(40px,6vw,72px);overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:115%;object-fit:cover;filter:brightness(.62) saturate(.9)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(25,25,25,.65) 0%,rgba(25,25,25,.1) 35%,rgba(25,25,25,.55) 70%,var(--char) 100%),linear-gradient(90deg,rgba(80,40,100,.35),transparent 60%)}
+.hero-in{max-width:var(--wrap);width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(46px,8.4vw,128px);line-height:.92}
+.hero h1 .tagwrap{position:relative;display:inline-block}
+.hero h1 .sticker{position:absolute;right:-.2em;bottom:-.5em;font-size:clamp(11px,1.1vw,16px);white-space:nowrap}
+.hero-side p{margin:0 0 22px;font-size:18px;line-height:1.45}
+.hero-side p b{font-weight:700}
+.hero-side .btn{width:100%}
+.live{display:flex;align-items:center;gap:16px;margin-top:14px;padding:14px 16px;border-radius:14px;background:rgba(25,25,25,.7);border:1px solid var(--line-d)}
+.live b{font-family:var(--head);font-weight:900;font-size:36px;line-height:1;color:var(--needle)}
+.live small{display:block;font-size:13px;color:#D8D8D2;line-height:1.3}
+.live .dot{width:9px;height:9px;border-radius:50%;background:var(--alarm);flex:none;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.live .bar{height:4px;border-radius:4px;background:rgba(255,255,255,.12);margin-top:8px;overflow:hidden}
+.live .bar i{display:block;height:100%;width:0;background:var(--heather);transition:width .5s linear}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr}.hero h1 .sticker{right:auto;left:30%}}
+
+/* LOGO STRIP (chips) */
+.strip{padding:22px var(--gut);border-block:1px solid var(--line-d);overflow:hidden}
+.strip-track{display:flex;gap:10px;width:max-content;will-change:transform}
+.strip-track span{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid var(--line-d);border-radius:8px;font-size:14px;font-weight:600;white-space:nowrap}
+.strip-track i{width:18px;height:18px;border-radius:5px;background:var(--c,var(--needle))}
+
+/* ABOUT + collage */
+.about .lead{margin:22px auto 0;font-size:18px;color:#3B3B36}
+.collage{margin-top:60px;display:flex;flex-direction:column;gap:14px;overflow:hidden;margin-inline:calc(-1*var(--gut))}
+.c-row{display:flex;gap:14px;width:max-content;align-items:flex-end;will-change:transform}
+.c-row figure{margin:0;position:relative;border-radius:18px;overflow:hidden;flex:none;height:clamp(150px,18vw,250px)}
+.c-row figure img{height:100%;width:auto;aspect-ratio:var(--ar,1.5);object-fit:cover}
+.c-row figure.t{height:clamp(190px,24vw,320px)}
+.c-row figcaption{position:absolute;left:10px;bottom:10px}
+
+/* LIME stats */
+.acc-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.acc-top p{margin:0;font-size:16px}
+.acc-top p b{font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:56px}
+.stat{background:var(--cream);border-radius:14px;padding:24px 22px}
+.stat b{display:block;font-family:var(--head);font-weight:900;font-size:clamp(32px,3.4vw,50px);line-height:1;letter-spacing:-.02em}
+.stat small{display:block;margin-top:14px;font-size:15px;color:var(--mute-l)}
+@media (max-width:860px){.acc-top{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+
+/* PROBLEM bento */
+.bento{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:auto auto;gap:12px;margin-top:48px}
+.b-photo{grid-row:span 2;position:relative;min-height:560px;border-radius:18px;overflow:hidden}
+.b-photo .sticker{position:absolute;left:18px;top:18px;z-index:2}
+.card{border-radius:18px;padding:22px;display:flex;flex-direction:column;min-height:274px}
+.card .top{display:flex;justify-content:space-between;align-items:center}
+.card .pill{padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(20,20,20,.08)}
+.card .big{margin-top:auto;font-size:clamp(22px,2vw,28px);line-height:1.18;font-weight:500;letter-spacing:-.01em}
+.card .big .m{opacity:.55}
+.c-heather{background:var(--heather);color:var(--ink)}
+.c-cream{background:var(--cream);color:var(--ink)}
+.c-lime{background:var(--needle);color:var(--ink)}
+.c-info{background:var(--char-2);border:1px solid var(--line-d);gap:0}
+.c-info div{padding:12px 0;border-bottom:1px solid var(--line-d)}
+.c-info div:last-child{border:0}
+.c-info small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute-d)}
+.c-info b{font-size:17px;font-weight:600}
+@media (max-width:960px){.bento{grid-template-columns:1fr 1fr}.b-photo{grid-column:1/-1;grid-row:auto;min-height:360px}}
+@media (max-width:560px){.bento{grid-template-columns:1fr}.card{min-height:220px}}
+
+/* COUNTER */
+.counter-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-top:48px}
+.cbig{border-radius:18px;background:var(--heather);color:var(--ink);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;min-height:420px;position:relative;overflow:hidden}
+.cbig .n{font-family:var(--head);font-weight:900;font-size:clamp(96px,15vw,220px);line-height:.82;letter-spacing:-.04em}
+.cbig .lbl{font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:20px}
+.cbig .tree{position:absolute;right:28px;top:28px;width:72px;height:72px}
+.cside{display:grid;gap:12px}
+.cside .card{min-height:0}
+.cside .card b.n2{font-family:var(--head);font-weight:900;font-size:clamp(40px,4vw,60px);line-height:1}
+.prog{height:14px;border-radius:999px;background:rgba(20,20,20,.12);overflow:hidden;margin-top:16px}
+.prog i{display:block;height:100%;width:0;background:var(--ink);border-radius:inherit;transition:width .5s linear}
+.note{margin-top:12px;font-size:13px;color:var(--mute-d)}
+@media (max-width:860px){.counter-grid{grid-template-columns:1fr}.cbig{min-height:320px}}
+
+/* TREES as members */
+.mem-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.members{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:44px}
+.mem{border:1px solid var(--line-l);border-radius:12px;padding:6px 6px 12px;background:#fff;position:relative;cursor:pointer;text-align:center;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.mem:hover,.mem:focus-visible{transform:translateY(-6px) rotate(-1.2deg);box-shadow:6px 6px 0 var(--ink)}
+.mem .ph{position:relative;aspect-ratio:3/4;border-radius:8px;overflow:hidden;background:#ddd}
+.mem .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.mem:hover .ph img{transform:scale(1.06)}
+.mem .q{position:absolute;inset:0;padding:14px;background:rgba(20,20,20,.86);color:#fff;font-size:13px;line-height:1.4;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity .4s}
+.mem .q b{display:inline-block;align-self:flex-start;margin-bottom:8px;padding:2px 8px;border-radius:4px;background:var(--needle);color:var(--ink);font-size:11px;text-transform:uppercase}
+.mem:hover .q,.mem:focus-visible .q,.mem.open .q{opacity:1}
+.mem h3{margin-top:12px;font-size:16px}
+.mem small{display:block;font-size:12px;color:var(--mute-l)}
+.mem .age{position:absolute;top:14px;right:14px;z-index:2}
+@media (max-width:960px){.members{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.members{grid-template-columns:repeat(2,minmax(0,1fr))}.mem .q{font-size:12px;padding:10px}}
+
+/* ANIMALS stickers */
+.animals{position:relative;overflow:hidden}
+.an-stage{position:relative;max-width:var(--wrap);margin:0 auto;min-height:820px;display:flex;align-items:center;justify-content:center}
+.an-title{text-align:center;position:relative;z-index:3;max-width:640px}
+.an-title .h2{font-size:clamp(36px,5.6vw,80px)}
+.an-title p{margin:18px auto 0;max-width:420px;color:var(--mute-l)}
+.ast{position:absolute;width:clamp(150px,15vw,200px);background:#fff;border-radius:14px;padding:8px 8px 10px;border:1px solid var(--line-l);box-shadow:0 18px 30px -18px rgba(0,0,0,.35);transform:rotate(var(--r,0deg));z-index:2;transition:transform .5s var(--ease)}
+.ast:hover{transform:rotate(0) scale(1.06);z-index:4}
+.ast .ph{position:relative;aspect-ratio:1;border-radius:9px;overflow:hidden}
+.ast .ph img{width:100%;height:100%;object-fit:cover}
+.ast h3{font-size:15px;margin-top:10px;text-align:center}
+.ast .rb{display:block;width:max-content;margin:6px auto 0;padding:2px 8px;border-radius:999px;background:var(--heather);font-size:11px;font-weight:600}
+.ast .plain{background:#EDEDE6}
+.ast p{display:none}
+@media (max-width:900px){
+  .an-stage{min-height:0;flex-direction:column;gap:30px}
+  .an-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
+  .ast{position:relative;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;width:auto}
+  .ast:nth-child(odd){--r:-2deg}.ast:nth-child(even){--r:2deg}
+}
+.an-grid{display:contents}
+
+/* BOGS: "what you get" style tabs */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:44px}
+.fcard{position:relative;border-radius:18px;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.fcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.82))}
+.fcard > *:not(img){position:relative;z-index:2}
+.fcard .sticker{position:absolute;left:20px;top:20px;transform:rotate(-4deg)}
+.fcard h3{font-size:clamp(22px,2.2vw,30px)}
+.fcard p{margin:8px 0 0;color:#E6E6E0;max-width:440px}
+.flist{display:grid;gap:12px}
+.fli{border:1px solid var(--line-d);border-radius:18px;padding:22px;background:var(--char-2)}
+.fli .k{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--heather);color:var(--ink);font-size:12px;font-weight:600}
+.fli h3{font-size:20px;margin-top:12px}
+.fli p{margin:8px 0 0;color:var(--mute-d)}
+@media (max-width:860px){.feat{grid-template-columns:1fr}.fcard{min-height:360px}}
+
+/* REPORT */
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:44px}
+.map{position:relative;min-height:520px;border-radius:18px;overflow:hidden;background:#EAE6DB;border:1px solid var(--line-l)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.mpin{position:absolute;transform:translate(-50%,-50%)}
+.mpin .sticker{transform:rotate(var(--r,-4deg));font-size:11px;white-space:nowrap}
+@media (max-width:600px){.mpin.r2{left:64%!important}.mpin.r1{left:34%!important}}
+.mpin.red .sticker{background:var(--alarm);color:#fff}
+.mpin.ink .sticker{background:var(--ink);color:#fff}
+.map .tag{position:absolute;left:14px;bottom:14px;font-size:12px;background:#fff;padding:6px 10px;border-radius:8px;color:var(--mute-l)}
+.form{border-radius:18px;background:var(--ink);color:#fff;padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:12px}
+.form h3{font-size:clamp(26px,2.6vw,38px);margin-bottom:6px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#BDBDB7}
+.form input{min-height:52px;padding:0 14px;border-radius:10px;border:1px solid var(--line-d);background:var(--char-2);color:#fff;font:inherit;font-size:15px;text-transform:none;letter-spacing:0}
+.form input:focus{outline:none;border-color:var(--needle)}
+.form input::placeholder{color:#6E6E68}
+.drop{min-height:70px;border:1.5px dashed var(--line-d);border-radius:10px;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;color:#D6D6D0;text-transform:none;letter-spacing:0;font-size:14px;font-weight:500}
+.ok{margin:0;color:var(--needle);font-size:14px}
+@media (max-width:860px){.report-grid{grid-template-columns:1fr}.map{min-height:400px}}
+
+/* ACT = pricing tiers */
+.toggle{display:inline-flex;margin:28px auto 0;padding:4px;border-radius:999px;border:1px solid var(--line-d)}
+.toggle span{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600}
+.toggle span.on{background:#fff;color:var(--ink)}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px;align-items:stretch}
+.tier{border-radius:18px;padding:26px;display:flex;flex-direction:column;background:var(--char-2);border:1px solid var(--line-d)}
+.tier.pop{background:var(--cream);color:var(--ink);border:0;position:relative}
+.tier.pop .sticker{position:absolute;right:18px;top:-14px}
+.tier .lvl{align-self:flex-start;padding:3px 10px;border-radius:6px;font-size:12px;font-weight:700;text-transform:uppercase;background:rgba(255,255,255,.1)}
+.tier.pop .lvl{background:var(--needle)}
+.tier .price{margin-top:18px;font-family:var(--head);font-weight:900;font-size:clamp(30px,3vw,42px);line-height:1;text-transform:uppercase}
+.tier .price small{display:block;margin-top:6px;font-family:var(--sans);font-weight:500;font-size:14px;text-transform:none;opacity:.7}
+.tier ul{list-style:none;margin:22px 0 26px;padding:0;display:grid;gap:10px;font-size:15px}
+.tier li{display:flex;gap:10px;align-items:flex-start}
+.tier li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--heather) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/11px no-repeat}
+.tier .btn{margin-top:auto;width:100%}
+@media (max-width:900px){.tiers{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{padding:clamp(64px,8vw,110px) var(--gut) 28px;background:var(--char);border-top:1px solid var(--line-d)}
+.fbig{font-family:var(--head);font-weight:900;text-transform:uppercase;font-size:clamp(46px,11vw,170px);line-height:.88;letter-spacing:-.02em}
+.fbig .hl{color:var(--ink)}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-top:64px;font-size:15px}
+.fgrid div{display:flex;flex-direction:column;gap:8px}
+.fgrid small{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute-d);margin-bottom:4px}
+.fgrid a:hover{color:var(--needle)}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:50px;padding-top:20px;border-top:1px solid var(--line-d);font-size:12px;color:var(--mute-d)}
+@media (max-width:760px){.fgrid{grid-template-columns:1fr 1fr}}
+
+@media (max-width:600px){
+  section{padding-block:72px}
+  .lead,.about .lead{font-size:16px}
+  .hero{padding-top:100px}
+  .stat{padding:18px 16px}.stat small{font-size:13px}
+  .cbig .tree{width:52px;height:52px;right:18px;top:18px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="logo"><span class="logo-mark"><svg width="20" height="22" viewBox="0 0 20 22" fill="none" aria-hidden="true"><path d="M10 1 3 10h4l-5 7h16l-5-7h4L10 1Z" fill="currentColor"/><path d="M10 17v4" stroke="currentColor" stroke-width="2.4"/></svg></span>Ліс<br>Маневич</a>
+    <nav class="links" aria-label="Розділи"><a href="#about">Про нас</a><a href="#problem">Вирубка</a><a href="#trees">Дерева</a><a href="#animals">Тварини</a><a href="#report">Сигнал</a></nav>
+    <div class="nav-ctas"><a href="#report" class="btn b-ghost">Сигнал</a><a href="#act" class="btn b-lime">Долучитись</a></div>
+    <button class="menu-btn" id="menuBtn" aria-label="Відкрити меню" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </div>
+  <div class="mmenu" id="mmenu" hidden><a href="#about">Про нас</a><a href="#problem">Вирубка</a><a href="#trees">Дерева</a><a href="#animals">Тварини</a><a href="#report">Сигнал</a><a href="#act">Долучитись</a></div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"><img src="img/hero.jpg" alt="Сосновий бор на Маневиччині"></div>
+  <div class="hero-in">
+    <h1 id="heroH">Бережи<br>свій ліс, <span class="tagwrap">поки він є<span class="sticker" id="heroSticker">на Маневиччині</span></span></h1>
+    <div class="hero-side">
+      <p><b>Ліс Маневичі</b> — це молодіжна спільнота, яка рахує кожне зрубане дерево і <b>не мовчить</b> — бо це наш дім.</p>
+      <a href="#act" class="btn b-heather">Стати частиною руху <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true"><path d="M1 4.5h20M1 9.5h20M18 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="live" aria-live="off"><span class="dot"></span><div style="flex:1"><div style="display:flex;align-items:baseline;gap:10px"><b class="tnum" id="cToday">0</b><small>дерев зрубано сьогодні<br>за планом заготівлі</small></div><div class="bar"><i id="liveBar"></i></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip dark" aria-hidden="true"><div class="strip-track" id="strip">
+  <span><i></i>Сосна</span><span><i style="--c:var(--heather)"></i>Дуб</span><span><i></i>Береза</span><span><i style="--c:var(--heather)"></i>Вільха</span><span><i></i>Осика</span><span><i style="--c:#fff"></i>Зубр</span><span><i style="--c:var(--heather)"></i>Чорний лелека</span><span><i></i>Глухар</span><span><i style="--c:#fff"></i>Видра</span><span><i style="--c:var(--heather)"></i>Болота</span>
+  <span><i></i>Сосна</span><span><i style="--c:var(--heather)"></i>Дуб</span><span><i></i>Береза</span><span><i style="--c:var(--heather)"></i>Вільха</span><span><i></i>Осика</span><span><i style="--c:#fff"></i>Зубр</span><span><i style="--c:var(--heather)"></i>Чорний лелека</span><span><i></i>Глухар</span><span><i style="--c:#fff"></i>Видра</span><span><i style="--c:var(--heather)"></i>Болота</span>
+</div></div>
+
+<!-- ABOUT -->
+<section class="cream about center" id="about">
+  <div class="wrap">
+    <h2 class="h2" data-up><span class="hl" data-hl>Про</span> проєкт</h2>
+    <p class="lead" data-up>Довкола Маневичів — 82 902 гектари лісу: соснові бори, дубові гаї, болота. Ми створили простір, де кожен може дізнатися правду про вирубку, познайомитися з лісом і зробити щось, щоб його зберегти.</p>
+  </div>
+  <div class="collage" aria-hidden="true">
+    <div class="c-row" id="row1">
+      <figure style="--ar:1.5"><img src="img/hero.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:.67"><img src="img/seedling.jpg" alt="" loading="lazy"><figcaption><span class="sticker">Волонтери</span></figcaption></figure>
+      <figure style="--ar:1.5"><img src="img/zubr.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:1.5"><img src="img/swamp.jpg" alt="" loading="lazy"><figcaption><span class="sticker h">Болота</span></figcaption></figure>
+      <figure style="--ar:1.5"><img src="img/oak.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:1.5"><img src="img/pineforest.jpg" alt="" loading="lazy"></figure>
+      <figure style="--ar:1.5"><img src="img/hero.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:.67"><img src="img/seedling.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="c-row" id="row2" style="align-items:flex-start">
+      <figure class="t" style="--ar:1.5"><img src="img/stork.jpg" alt="" loading="lazy"><figcaption><span class="sticker">Червона книга</span></figcaption></figure>
+      <figure style="--ar:1.5"><img src="img/birch.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:1.5"><img src="img/los.jpg" alt="" loading="lazy"></figure>
+      <figure style="--ar:1.5"><img src="img/aspen.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:1.5"><img src="img/vydra.jpg" alt="" loading="lazy"></figure>
+      <figure style="--ar:1.5"><img src="img/pine.jpg" alt="" loading="lazy"></figure>
+      <figure class="t" style="--ar:1.5"><img src="img/stork.jpg" alt="" loading="lazy"></figure>
+      <figure style="--ar:1.5"><img src="img/birch.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- LIME -->
+<section class="lime">
+  <div class="wrap">
+    <div class="acc-top">
+      <h2 class="h2" data-up style="font-size:clamp(28px,3.4vw,46px)">Ми більше, ніж сайт. Ми — <span class="hl" data-hl>голос лісу</span></h2>
+      <p data-up>Ліс не може сам сказати «досить». Тому ми збираємо <b>факти</b>, <b>сигнали про вирубку</b> й <b>людей</b>, яким не байдуже — школярів, батьків, лісівників і тих, хто просто любить гриби та тишу.</p>
+    </div>
+    <div class="stats">
+      <div class="stat" data-rise><b class="tnum" data-count="82902">82 902</b><small>гектари лісу довкола Маневичів</small></div>
+      <div class="stat" data-rise><b class="tnum" data-count="15">15</b><small>лісництв</small></div>
+      <div class="stat" data-rise><b class="tnum" data-count="74" data-suf="%">74%</b><small>лісів — хвойні</small></div>
+      <div class="stat" data-rise><b class="tnum">4,5%</b><small>мають статус охорони</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="dark" id="problem">
+  <div class="wrap">
+    <h2 class="h2" data-up>Що <span class="hl" data-hl>не так</span> з нашим лісом</h2>
+    <div class="bento">
+      <div class="b-photo" data-rise><img class="cover" src="img/felling.jpg" alt="Зрізані стовбури" loading="lazy" data-par><span class="sticker">Суцільні рубки</span></div>
+      <article class="card c-heather" data-rise><div class="top"><span class="pill">Проблема</span><span class="pill">01</span></div><p class="big"><span class="m">План заготівлі —</span> 193&nbsp;440&nbsp;м³ деревини на рік</p></article>
+      <article class="card c-cream" data-rise><div class="top"><span class="pill">Проблема</span><span class="pill">02</span></div><p class="big"><span class="m">87% лісів —</span> експлуатаційні, тобто під рубку</p></article>
+      <article class="card c-lime" data-rise><div class="top"><span class="pill">Проблема</span><span class="pill">03</span></div><p class="big"><span class="m">Санітарні рубки —</span> 2&nbsp;560&nbsp;га на рік під гаслом «оздоровлення»</p></article>
+      <article class="card c-info" data-rise>
+        <div><small>Хто рубає</small><b>Лісгоспи й лісництва за планом</b></div>
+        <div><small>Що відновлюється</small><b>Сосна й дуб — майже ні</b></div>
+        <div><small>Під охороною</small><b>Лише 4,5% лісу</b></div>
+        <div><small>Джерело</small><b>План Маневицького надлісництва, 2025</b></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTER -->
+<section class="dark" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2" data-up>Лічильник <span class="hl l" data-hl>наживо</span></h2>
+    <div class="counter-grid">
+      <div class="cbig" data-rise>
+        <svg class="tree" viewBox="0 0 72 72" aria-hidden="true"><g id="fallTree" style="transform-origin:36px 64px"><path d="M36 6 22 26h8L18 42h10L16 58h40L44 42h10L42 26h8L36 6Z" fill="#141414"/><rect x="33" y="58" width="6" height="8" fill="#141414"/></g><path d="M10 66h52" stroke="#141414" stroke-width="3" stroke-linecap="round"/></svg>
+        <span class="lbl">Зрубано сьогодні</span>
+        <span class="n tnum" id="cToday2">0</span>
+        <span style="font-size:15px">дерев — з півночі за київським часом</span>
+      </div>
+      <div class="cside">
+        <div class="card c-cream" data-rise><span class="pill" style="align-self:flex-start">Наступне дерево</span><b class="n2 tnum" id="cNext" style="margin-top:16px">0:00</b><div class="prog"><i id="nProg"></i></div></div>
+        <div class="card c-lime" data-rise><span class="pill" style="align-self:flex-start">Поки ти на сторінці</span><b class="n2 tnum" id="cHere" style="margin-top:16px">0,00 м³</b><span style="margin-top:8px;font-size:14px">деревини вже заготовлено</span></div>
+      </div>
+    </div>
+    <p class="note">Розрахунок: 193 440 м³ на рік ÷ 365 днів ≈ 530 м³ на день; один стовбур ≈ 1 м³ → дерево кожні ~2,7 хв.</p>
+  </div>
+</section>
+
+<!-- TREES -->
+<section class="cream" id="trees">
+  <div class="wrap">
+    <div class="mem-head">
+      <h2 class="h2" data-up>Знайомся з <span class="hl" data-hl>командою</span> лісу</h2>
+      <p class="lead" data-up>П'ять дерев, на яких тримається Полісся. Наведи або натисни на картку — побачиш факт.</p>
+    </div>
+    <div class="members" id="members"></div>
+  </div>
+</section>
+
+<!-- ANIMALS -->
+<section class="cream animals" id="animals" style="padding-top:20px">
+  <div class="an-stage">
+    <div class="an-title"><span class="chip" style="margin-bottom:18px">7 видів · 5 у Червоній книзі</span><h2 class="h2" data-up>Твої <span class="hl" data-hl>сусіди</span><br>по лісу</h2><p>Усі вони офіційно зафіксовані в лісах Маневиччини. Вирубаний гектар — це чийсь дім.</p></div>
+    <div class="an-grid">
+      <article class="ast" style="left:2%;top:4%;--r:-8deg"><div class="ph"><img src="img/zubr.jpg" alt="Зубр" loading="lazy"></div><h3>Зубр</h3><span class="rb">Червона книга</span></article>
+      <article class="ast" style="left:17%;top:74%;--r:6deg"><div class="ph"><img src="img/los.jpg" alt="Лось" loading="lazy"></div><h3>Лось</h3><span class="rb plain">Мешканець</span></article>
+      <article class="ast" style="right:3%;top:2%;--r:7deg"><div class="ph"><img src="img/stork.jpg" alt="Чорний лелека" loading="lazy" style="object-position:28% 50%"></div><h3>Чорний лелека</h3><span class="rb">Червона книга</span></article>
+      <article class="ast" style="right:17%;top:74%;--r:-5deg"><div class="ph"><img src="img/gluhar.jpg" alt="Глухар" loading="lazy"></div><h3>Глухар</h3><span class="rb">Червона книга</span></article>
+      <article class="ast" style="left:1%;bottom:2%;--r:4deg"><div class="ph"><img src="img/pugach.jpg" alt="Пугач" loading="lazy"></div><h3>Пугач</h3><span class="rb">Червона книга</span></article>
+      <article class="ast" style="right:1%;bottom:0;--r:-7deg"><div class="ph"><img src="img/bober.jpg" alt="Бобер" loading="lazy"></div><h3>Бобер</h3><span class="rb plain">Мешканець</span></article>
+      <article class="ast" style="left:22%;top:4%;--r:-3deg"><div class="ph"><img src="img/vydra.jpg" alt="Видра річкова" loading="lazy"></div><h3>Видра</h3><span class="rb">Червона книга</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- BOGS -->
+<section class="dark" id="bogs">
+  <div class="wrap">
+    <h2 class="h2" data-up>Болота <span class="hl" data-hl>зникають</span> мовчки</h2>
+    <div class="feat">
+      <div class="fcard" data-rise><img class="cover" src="img/swamp.jpg" alt="Поліське болото з очеретом" loading="lazy" data-par><span class="sticker">Водний фільтр</span><h3>Болото — губка Полісся</h3><p>Воно тримає воду, живить річки й колодязі та стримує пожежі.</p></div>
+      <div class="flist">
+        <div class="fli" data-rise><span class="k">01</span><h3>Водний режим зламано</h3><p>Осушення минулого століття досі відчувають колодязі й малі річки.</p></div>
+        <div class="fli" data-rise><span class="k">02</span><h3>Посуха або повінь</h3><p>Болото регулює стік. Знищ його — і отримаєш одне з двох.</p></div>
+        <div class="fli" data-rise><span class="k">03</span><h3>Пороховий погріб</h3><p>Осушений торф тліє місяцями й труїть навколишні села димом.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="cream" id="report">
+  <div class="wrap">
+    <h2 class="h2" data-up>Бачив вирубку? <span class="hl l" data-hl>Познач її</span></h2>
+    <div class="report-grid">
+      <div class="map" data-rise>
+        <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="none" stroke="#D4CFC1" stroke-width="1.2"><path d="M-10 120C100 80 200 160 300 120S480 60 610 110"/><path d="M-10 200C110 160 210 240 310 200S490 140 610 190"/><path d="M-10 280C120 240 220 320 320 280S500 220 610 270"/><path d="M-10 360C110 320 230 400 330 360S500 300 610 350"/><path d="M-10 440C120 400 240 480 340 440S520 380 610 430"/></g>
+          <path d="M60 470C160 420 230 380 290 300S430 150 560 70" fill="none" stroke="#E3A8F2" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+        </svg>
+        <div class="mpin ink" style="left:50%;top:52%;--r:3deg"><span class="sticker">Маневичі</span></div>
+        <div class="mpin red r1" style="left:26%;top:30%;--r:-6deg"><span class="sticker">Вирубка · Троянівка</span></div>
+        <div class="mpin red r2" style="left:74%;top:22%;--r:5deg"><span class="sticker">Вирубка · Городок</span></div>
+        <div class="mpin" style="left:34%;top:78%;--r:-3deg"><span class="sticker">Відновлено · Оконськ</span></div>
+        <span class="tag">Карта-приклад · мітки умовні</span>
+      </div>
+      <form class="form" id="form" data-rise>
+        <h3>Надіслати <span class="hl" style="--hc:var(--heather)">сигнал</span></h3>
+        <label for="f1">Де це сталося?<input id="f1" type="text" placeholder="Село, урочище або орієнтир" required></label>
+        <label for="f2">Коли?<input id="f2" type="date"></label>
+        <label for="f3">Фото<span class="drop"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 16V4M6 10l6-6 6 6M4 20h16"/></svg><span id="f3n">Обрати фото</span></span><input id="f3" type="file" accept="image/*" hidden></label>
+        <label for="f4">Email — не публікується<input id="f4" type="email" placeholder="name@mail.com"></label>
+        <button class="btn b-lime" type="submit">Надіслати сигнал <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true"><path d="M1 4.5h20M1 9.5h20M18 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <p class="ok" id="ok" hidden>Сигнал прийнято. Модератор перевірить його найближчим часом.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ACT -->
+<section class="dark center" id="act">
+  <div class="wrap">
+    <h2 class="h2" data-up>Обери свій <span class="hl" data-hl>рівень</span> участі</h2>
+    <div class="toggle" aria-hidden="true"><span class="on">Для всіх</span><span>Безкоштовно</span></div>
+    <div class="tiers" style="text-align:left">
+      <article class="tier" data-rise><span class="lvl">Старт</span><div class="price">1 клік<small>Підходить, якщо в тебе є хвилина</small></div><ul><li>Підписати звернення про контроль вирубок</li><li>Поділитися сайтом з друзями</li><li>Дізнатися 5 фактів про ліс</li></ul><a href="#act" class="btn b-ghost">Підписати</a></article>
+      <article class="tier pop" data-rise><span class="sticker h">Найпопулярніше</span><span class="lvl">Активіст</span><div class="price">Сигнал<small>Для тих, хто бачить і не мовчить</small></div><ul><li>Повідомляти про вирубки з фото</li><li>Отримувати новини про розслідування</li><li>Розповісти про ліс у школі чи громаді</li><li>Доступ до шаблонів звернень</li></ul><a href="#report" class="btn b-ink">Надіслати сигнал</a></article>
+      <article class="tier" data-rise><span class="lvl">Лісовий герой</span><div class="price">Виходь<small>Для тих, хто хоче руками</small></div><ul><li>Прибирання лісу разом із громадою</li><li>Висадка дерев навесні та восени</li><li>Екскурсії лісом для дітей</li></ul><a href="#act" class="btn b-heather">Найближча акція</a></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbig" id="fbig">Ліс <span class="hl l">не чекає</span></div>
+    <div class="fgrid">
+      <div><small>Про проєкт</small><span style="max-width:340px;color:#D6D6D0">Соціальний проєкт про ліси довкола Маневичів, Волинь. Зроблено з любов'ю до Полісся.</span></div>
+      <div><small>Розділи</small><a href="#about">Про нас</a><a href="#problem">Вирубка</a><a href="#trees">Дерева</a><a href="#animals">Тварини</a></div>
+      <div><small>Дія</small><a href="#report">Сигнал</a><a href="#act">Звернення</a></div>
+      <div><small>Контакти</small><span>[EMAIL]</span><span>[INSTAGRAM]</span><span>[TELEGRAM]</span></div>
+    </div>
+    <div class="fbot"><span>© 2026 · Ліс Маневичі</span><span>Версія 4 · Спільнота</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const G=window.gsap,ST=window.ScrollTrigger;
+
+  /* counter */
+  const RATE=193440/(365*24*3600),opened=Date.now();let lastN=-1;
+  function tick(){const now=new Date(),mid=new Date(now);mid.setHours(0,0,0,0);const m3=(now-mid)/1000*RATE,n=Math.floor(m3),f=m3-n;
+    const s=n.toLocaleString('uk-UA');$('#cToday').textContent=s;$('#cToday2').textContent=s;
+    const left=Math.ceil((1-f)/RATE);$('#cNext').textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0');
+    $('#nProg').style.width=(f*100).toFixed(1)+'%';$('#liveBar').style.width=(f*100).toFixed(1)+'%';
+    $('#cHere').textContent=((Date.now()-opened)/1000*RATE).toFixed(2).replace('.',',')+' м³';
+    if(lastN>=0&&n>lastN&&G&&!reduce){G.fromTo('#fallTree',{rotate:0},{rotate:88,duration:1.1,ease:'power2.in',yoyo:true,repeat:1,repeatDelay:.6});G.fromTo('#cToday2',{scale:1.15},{scale:1,duration:.8,ease:'elastic.out(1,.5)'});}
+    lastN=n;}
+  tick();setInterval(tick,500);
+
+  /* menu / form */
+  const mb=$('#menuBtn'),mm=$('#mmenu');
+  mb.addEventListener('click',()=>{const o=mm.hidden;mm.hidden=!o;mb.setAttribute('aria-expanded',String(o));});
+  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.hidden=true;mb.setAttribute('aria-expanded','false');}));
+  $('#f3').addEventListener('change',e=>{$('#f3n').textContent=e.target.files[0]?e.target.files[0].name:'Обрати фото';});
+  $('#form').addEventListener('submit',e=>{e.preventDefault();$('#ok').hidden=false;e.target.reset();$('#f3n').textContent='Обрати фото';});
+
+  /* trees as team members */
+  const T=[
+    {n:'Сосна',role:'Головна по піску',img:'img/pine.jpg',age:'300+ р.',tag:'74% лісу',q:'«Чіпляюся корінням навіть за голий камінь. Без мене тут була б пустеля».'},
+    {n:'Дуб',role:'Довгожитель команди',img:'img/oak.jpg',age:'500+ р.',tag:'Годувальник',q:'«Мої жолуді годують кабана, сойку й білку. Стою століттями».'},
+    {n:'Береза',role:'Першою на зрубі',img:'img/birch.jpg',age:'100+ р.',tag:'Піонерка',q:'«На моєму бересті писали листи, які пережили вісім століть».'},
+    {n:'Вільха',role:'Охоронниця берегів',img:'img/swamp.jpg',age:'100+ р.',tag:'Біля води',q:'«Тримаю береги річок і збагачую ґрунт азотом».'},
+    {n:'Осика',role:'Найгучніша в лісі',img:'img/aspen.jpg',age:'~100 р.',tag:'«Шумне дерево»',q:'«Моє листя тремтить від найменшого вітру. А дупла — дім для сов».'}
+  ];
+  const mem=$('#members');
+  T.forEach(t=>{const a=document.createElement('article');a.className='mem';a.tabIndex=0;a.setAttribute('data-rise','');
+    a.innerHTML='<span class="sticker age">'+t.age+'</span><div class="ph"><img src="'+t.img+'" alt="'+t.n+'" loading="lazy"><div class="q"><b>'+t.tag+'</b>'+t.q+'</div></div><h3>'+t.n+'</h3><small>'+t.role+'</small>';
+    a.addEventListener('click',()=>a.classList.toggle('open'));mem.appendChild(a);});
+
+  if(!G||!ST||reduce)return;
+  G.registerPlugin(ST);ST.config({ignoreMobileResize:true});
+  if(window.Lenis&&fine){const l=new Lenis({duration:1.15,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});l.on('scroll',ST.update);G.ticker.add(t=>l.raf(t*1000));G.ticker.lagSmoothing(0);
+    $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1&&$(id)){e.preventDefault();l.scrollTo(id,{offset:-10});}}));}
+
+  /* nav */
+  let lastY=0,hid=false;ST.create({start:0,end:'max',onUpdate:s=>{const y=s.scroll();$('#nav').classList.toggle('solid',y>40);if(y>lastY+4&&y>300&&!hid){hid=true;$('#nav').classList.add('hide');}else if((y<lastY-4||y<300)&&hid){hid=false;$('#nav').classList.remove('hide');}lastY=y;}});
+
+  /* hero */
+  const tl=G.timeline({defaults:{ease:'expo.out'}});
+  tl.from('#heroBg img',{scale:1.2,duration:2.2})
+    .from('#heroH',{yPercent:30,opacity:0,duration:1.3},'-=1.8')
+    .from('#heroSticker',{scale:0,rotate:-40,duration:.9,ease:'back.out(2.2)'},'-=.6')
+    .from('.hero-side > *',{y:30,opacity:0,duration:1,stagger:.1},'-=1');
+  G.to('#heroBg',{yPercent:14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  /* marker highlights draw in */
+  $$('[data-hl]').forEach(el=>{G.fromTo(el,{'--hw':'0%'},{'--hw':'100%',duration:.9,ease:'power3.inOut',scrollTrigger:{trigger:el,start:'top 85%'},delay:.25});});
+  G.fromTo('#fbig .hl',{'--hw':'0%'},{'--hw':'100%',duration:1,ease:'power3.inOut',scrollTrigger:{trigger:'footer',start:'top 75%'}});
+
+  $$('[data-up]').forEach(el=>G.from(el,{y:40,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+  ST.batch('[data-rise]',{start:'top 92%',once:true,onEnter:b=>G.fromTo(b,{y:60,opacity:0},{y:0,opacity:1,duration:1,stagger:.08,ease:'expo.out',clearProps:'transform,opacity'})});
+  $$('[data-count]').forEach(el=>{const end=+el.dataset.count,suf=el.dataset.suf||'',o={v:0};ST.create({trigger:el,start:'top 92%',once:true,onEnter:()=>G.to(o,{v:end,duration:1.8,ease:'expo.out',onUpdate:()=>{el.textContent=Math.round(o.v).toLocaleString('uk-UA')+suf;}})});});
+  $$('[data-par]').forEach(im=>G.fromTo(im,{yPercent:-6,scale:1.14},{yPercent:6,scale:1.14,ease:'none',scrollTrigger:{trigger:im.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
+
+  /* collage rows move opposite on scroll */
+  G.fromTo('#row1',{xPercent:-4},{xPercent:-30,ease:'none',scrollTrigger:{trigger:'.collage',start:'top bottom',end:'bottom top',scrub:true}});
+  G.fromTo('#row2',{xPercent:-30},{xPercent:-4,ease:'none',scrollTrigger:{trigger:'.collage',start:'top bottom',end:'bottom top',scrub:true}});
+
+  /* chip strip by velocity */
+  const st=$('#strip');let x=0,v=1;ST.create({onUpdate:s=>{v=1+Math.min(5,Math.abs(s.getVelocity())/350);}});
+  G.ticker.add(()=>{x-=v*.7;v+=(1-v)*.06;const w=st.scrollWidth/2;if(-x>w)x+=w;st.style.transform='translate3d('+x+'px,0,0)';});
+
+  /* stickers fly in */
+  const mmq=G.matchMedia();
+  mmq.add('(min-width:901px)',()=>{G.from('.ast',{y:120,rotate:'+=25',opacity:0,duration:1.2,stagger:.08,ease:'back.out(1.4)',scrollTrigger:{trigger:'.an-stage',start:'top 75%'}});
+    $$('.ast').forEach((a,i)=>G.to(a,{y:(i%2?-40:40),ease:'none',scrollTrigger:{trigger:'.an-stage',start:'top bottom',end:'bottom top',scrub:true}}));});
+  mmq.add('(max-width:900px)',()=>{ST.batch('.ast',{start:'top 92%',once:true,onEnter:b=>G.from(b,{y:50,opacity:0,duration:.9,stagger:.06,ease:'expo.out'})});});
+  G.from('.mpin',{scale:0,duration:.7,stagger:.12,ease:'back.out(2)',scrollTrigger:{trigger:'.map',start:'top 75%'}});
+  G.from('#fbig',{y:60,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'footer',start:'top 85%'}});
+  addEventListener('load',()=>ST.refresh());
+})();
+</script>
+
+</body></html>
